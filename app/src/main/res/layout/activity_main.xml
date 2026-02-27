@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/navy">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/navy"
+        android:elevation="4dp">
+
+        <!-- TITLE + PRIVACY ICON CONTAINER -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Awoof Diary"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/indigo"
+                android:layout_centerVertical="true"/>
+                
+            <!-- PRIVACY ICON -->
+            <ImageView
+                android:id="@+id/btnPrivacy"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_info"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackgroundBorderless"/>
+        </RelativeLayout>
+
+        <!-- Modern Tab Layout (Standard + Glow) -->
+        <RadioGroup
+            android:id="@+id/rg_main_network"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RadioButton 
+                android:id="@+id/tab_mtn" 
+                android:layout_width="0dp" 
+                android:layout_weight="1" 
+                android:layout_height="40dp" 
+                android:text="MTN" 
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:button="@null" 
+                android:background="@drawable/selector_tab"
+                android:layout_marginEnd="6dp"
+                android:checked="true"/>
+            
+            <RadioButton 
+                android:id="@+id/tab_airtel" 
+                android:layout_width="0dp" 
+                android:layout_weight="1" 
+                android:layout_height="40dp" 
+                android:text="Airtel" 
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:button="@null"
+                android:background="@drawable/selector_tab"
+                android:layout_marginEnd="6dp"/>
+            
+            <RadioButton 
+                android:id="@+id/tab_glo" 
+                android:layout_width="0dp" 
+                android:layout_weight="1" 
+                android:layout_height="40dp" 
+                android:text="Glo" 
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:button="@null"
+                android:background="@drawable/selector_tab"/>
+                
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="Search codes..."
+            android:textColorHint="@color/gray"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:background="@drawable/bg_search"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/btnSticky"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="none" />
+
+    <Button
+        android:id="@+id/btnSticky"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_button"
+        android:text="✨ View Bonus Cheats"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+</RelativeLayout>
