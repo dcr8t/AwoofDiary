@@ -11,24 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4  # UPGRADED TO v4
 
     - name: set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4 # UPGRADED TO v4
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: gradle
-
+        # We remove 'cache: gradle' temporarily to avoid locking issues on first run
+        
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew || true
 
     - name: Build with Gradle
-      # We use the built-in gradle if wrapper is missing, or generate one
-      run: gradle buildDebug --stacktrace
+      # We use the 'gradle' command directly in case the wrapper files (gradlew) 
+      # were not successfully exported from your phone.
+      run: gradle buildDebug --stacktrace --warning-mode all
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4 # CRITICAL FIX: UPGRADED TO v4
       with:
         name: Awoof-Diary-Debug
         path: app/build/outputs/apk/debug/app-debug.apk
+        compression-level: 0 # Faster upload
